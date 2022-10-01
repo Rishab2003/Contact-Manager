@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" th:replace="normal/base::Layout(~{::section})"> <!--th: replace has normal/-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+</head>
+<body>
+    <section>
+        <div class="card mr-4 ml-4" th:if=${contact}>
+            <div class="card-body">
+
+                <div class="container text-center">
+                    <img style="height: 200px; width: 200px;" class="my_profile_pic" th:src="@{'/img/'+${contact.image}}" alt="profile photo"/>
+                
+
+                <h3 class="mt-3"><span th:text="${contact.name}"></span> <span th:text="${contact.secondName}"></span> </h3>
+
+
+                </div>
+                <table class="table">
+                    <thead >
+                      <tr>
+                        <th scope="col">#ID</th>
+                        <th scope="col"><span th:text="${contact.cId}"></span></th>
+                       
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">Email</th>
+                        <td><spam=n th:text="${contact.Email}"></spam></td>
+                      
+                      </tr>
+                      <tr>
+                        <th scope="row">Phone</th>
+                        <td><spam=n th:text="${contact.phoneNo}"></spam></td>
+                      
+                      </tr>
+                      <tr>
+                        <th scope="row">Work</th>
+                        <td><spam=n th:text="${contact.Work}"></spam></td>
+                      
+                      </tr>
+                      <tr>
+                        <th scope="row">Email</th>
+                        <td><spam=n th:text="${contact.Email}"></spam></td>
+                      
+                      </tr>
+                      
+                     
+                    </tbody>
+                    
+                  </table>
+                    <div class="description">
+                        
+                        <th:block th:utext="${contact.description}"></th:block>
+                        <!-- use utext to convert html to readable form -->
+
+                    </div>
+
+
+            </div>
+           
+
+
+
+
+        </div>
+        <th:block th:unless="${contact}">
+            <div classs="container ">
+                <div class="alert alert-danger center-block" role="alert">
+                  <h4 class="alert-heading">Permission Denied</h4>
+                  <p>Unable to view other contacts</p>
+                  <hr>
+                </div>
+            </div>
+        </th:block>
+        
+
+    </section>
+   
+</body>
+</html>

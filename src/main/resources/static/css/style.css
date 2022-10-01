@@ -1,0 +1,108 @@
+body{
+    background: #E7F2F8;
+}
+.bg-nav{
+    background:  #FFA384;
+} 
+.banner{
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)) ,url(../img/contactus-background.jpg);
+    height: 92vh;
+    width: 100%;
+    background-size: cover;
+    color: aliceblue;
+    
+}
+.color-aqua{
+    background: #74BDCB;
+}
+.color-fres{
+    background: #f1efde;
+}
+.color-alert{
+    background: #72d56d;
+}
+
+
+.gradient{
+    
+    background: rgb(116,189,203);
+background: linear-gradient(90deg, rgba(116,189,203,1) 29%, rgba(239,231,188,1) 85%);
+}
+
+/*Sidebar style*/
+
+@media only scren and(max-width: 600px){
+    .sidebar{
+        display: none;
+        width: 80%;
+        background: beige;
+        height: 100%;
+        position: fixed;
+        padding-top: 20px;
+    
+    }
+    .content{
+        margin-left: 0%;
+    }
+}
+
+.sidebar{
+    width: 18%;
+    background: beige;
+    height: 100%;
+    
+    padding-top: 50px;
+    z-index: 99999999999999999;
+
+    
+    position: fixed;
+  
+
+}
+
+.sidebar a{
+
+    display: block;
+    width: 100%;
+    padding: 10px 25px;
+    text-decoration: none;
+    color: black;
+}
+
+.sidebar a:hover{
+    background-color:#E7F2F8 ;
+}
+
+.sidebar .divider{
+    height: .5px;
+    width: 100%;
+    background:#74BDCB;
+    margin-top: 10-x;
+}
+
+.content{
+    margin-left: 20%;
+    
+}
+
+.crossBtn{
+    margin-left: 20%;
+    
+}
+
+.sidebar .crossBtn{
+    position: absolute;
+    top: 0;
+    right: 35px;
+    font-size: 36px;
+    cursor: pointer;
+   
+}
+/* sidebar end */
+
+.my_profile_pic{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}

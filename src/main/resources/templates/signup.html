@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" th:replace="base::Layout(~{::section})">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>title</title>
+</head>
+
+<body>
+    <section>
+    <div class="container my-3">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card w-100 ">
+                        <div  th:if="${session.message}"  th:classappend="${session.message.type}" class="alert" role="alert">
+                        <p th:text="${session.message.content}"></p>
+                        <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+                      </div>
+                    <img th:src="@{/img/registration.png/}" src="" width="100" class="mx-auto d-block mt-4">
+
+                    <div class="card-body">
+                        <h2 class="card-title text-center">Registration form</h2>
+                        <!--form start-->  
+                        <form novalidate th:action="@{/do_register}" method="post" th:object="${user}">
+                            <!-- name field-->
+                            <div class="form-group ">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control " id="name_field" name="name" 
+                                placeholder="Enter here" required="true" th:value="${user.name}" th:classappend="${#fields.hasErrors('name') ?'is-invalid' : ' ' }" />
+                                
+                                <div id="validationServer03Feedback" class="invalid-feedback" th:each=" e: ${#fields.errors('name')}" th:text="${e}">
+                                   
+                                </div>
+                            
+                            </div>
+                            <!-- Email-->
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control" id="email_field" name="email"
+                                placeholder="Enter here" required="true" th:value="${user.email}"
+                                th:classappend="${#fields.hasErrors('email') ?'is-invalid' : ' ' }"/>
+
+                                <div id="validationServer03Feedback" class="invalid-feedback" th:each=" e: ${#fields.errors('email')}" th:text="${e}">
+                                   
+                                </div>
+                            </div>
+                            <!-- password_field-->
+                            <div class="form-group">
+                                <label for="password_field">Password</label>
+                                <input type="password" class="form-control" id="password_field" name="password"
+                                placeholder="Enter here" required="true" 
+                                th:classappend="${#fields.hasErrors('password') ?'is-invalid' : ' ' }"/>
+                                
+                                <div id="validationServer03Feedback" class="invalid-feedback" th:each=" e: ${#fields.errors('password')}" th:text="${e}">
+                                   
+                                </div>
+                            </div>
+                            <!--about section-->
+                            <div class="form-group">
+                                <textarea class="form-control" cols="30" rows="10" name="about" th:text="${user.about}"
+                                placeholder="Enter something about yourself" th:value="${user.about}"></textarea>
+                            </div>
+                            <!--terms and condition-->
+                            <div class="form-check my-1">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="agreement">
+                                <label class="form-check-label " for="exampleCheck1">Agree to terms and conditions</label>
+                              </div>
+                            <!--Submit button-->
+                            <div class="form-group d-flex justify-content-center">
+                                <button type="submit" class="btn color-aqua btn-outline-dark mx-4">Submit</button>
+                           
+                                <button type="reset" class="btn color-aqua btn-outline-dark mx-4">Reset</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+</body>
+
+</html>
